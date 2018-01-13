@@ -108,6 +108,7 @@ function getName(list) {
   return list.map(cur => cur.name);
 }
 
+// sortByScore :: [object] -> [object]
 function sortByScore(listOfRestaurants) {
   return listOfRestaurants.sort((a, b) => a.score - b.score);
 }
