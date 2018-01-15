@@ -77,7 +77,12 @@ To modify the program, you need to update the list of restaurants and people ins
       "type": "array",
       "minItems": 1,
       "items": {
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+          }
+        }
       },
       "uniqueItems": true
     }

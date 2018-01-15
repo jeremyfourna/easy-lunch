@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 
 const restaurants = [{
-  name: 'Indian Mexican',
+  name: 'W Imbiss',
   cuisine: ['Indian', 'Mexican', 'Japanese']
 }, {
   name: 'Babel',
@@ -21,73 +21,113 @@ const restaurants = [{
 }, {
   name: 'Flying Monkey',
   cuisine: ['Vietnamese', 'Asiatic']
+}, {
+  name: 'Chay Viet',
+  cuisine: ['Vietnamese']
+}, {
+  name: 'Oder Burger',
+  cuisine: ['Burger']
 }];
 
-const people = [{
-    name: 'Jeremy',
-    favCuisine: ['Lebanese', 'Indian', 'French', 'Japanese'],
-    restaurants: [{
-      name: 'Indian Mexican',
-      score: 3
-    }, {
-      name: 'Babel',
-      score: 3
-    }, {
-      name: 'School Cantine',
-      score: -3
-    }],
-    lunchThisWeek: [{ name: 'Babel' }]
+const jeremy = {
+  name: 'Jeremy',
+  favCuisine: ['Lebanese', 'Indian', 'French', 'Japanese'],
+  restaurants: [{
+    name: 'W Imbiss',
+    score: 3
   }, {
-    name: 'Andrey',
-    favCuisine: ['Russian'],
-    restaurants: [{
-      name: 'Gorki Park',
-      score: 3
-    }, {
-      name: 'Kiez Cantine',
-      score: 1
-    }],
-    lunchThisWeek: [{ name: 'Babel' }]
-  },
-  {
-    name: 'Rahul',
-    favCuisine: [],
-    restaurants: [],
-    lunchThisWeek: [{ name: 'Babel' }]
-  },
-  {
-    name: 'Chema',
-    favCuisine: ['German'],
-    restaurants: [{
-      name: 'School Cantine',
-      score: 3
-    }],
-    lunchThisWeek: [{ name: 'School Cantine' }]
-  },
-  {
-    name: 'Piotr',
-    favCuisine: [],
-    restaurants: [{
-      name: 'East Moon',
-      score: -3
-    }, {
-      name: 'Indian Mexican',
-      score: 1
-    }],
-    lunchThisWeek: [{ name: 'Gorki Park' }]
-  },
-  {
-    name: 'Daria',
-    favCuisine: ['Russian', 'Lebanese'],
-    restaurants: [{
-      name: 'Gorki Park',
-      score: 3
-    }, {
-      name: 'Babel',
-      score: 3
-    }],
-    lunchThisWeek: [{ name: 'Gorki Park' }]
-  }
-];
+    name: 'Babel',
+    score: 3
+  }, {
+    name: 'School Cantine',
+    score: -3
+  }],
+  lunchThisWeek: []
+};
+
+const andrey = {
+  name: 'Andrey',
+  favCuisine: ['Russian'],
+  restaurants: [{
+    name: 'Gorki Park',
+    score: 3
+  }, {
+    name: 'Chay Viet',
+    score: 1
+  }, {
+    name: 'W Imbiss',
+    score: 1
+  }, {
+    name: 'Babel',
+    score: -1
+  }, {
+    name: 'School Cantine',
+    score: -3
+  }],
+  lunchThisWeek: []
+};
+
+const rahul = {
+  name: 'Rahul',
+  favCuisine: [],
+  restaurants: [{
+    name: 'Gorki Park',
+    score: 1
+  }, {
+    name: 'Oder Burger',
+    score: 1
+  }, {
+    name: 'Chay Viet',
+    score: 1
+  }, {
+    name: 'School Cantine',
+    score: -3
+  }, {
+    name: 'East Moon',
+    score: -1
+  }, {
+    name: 'W Imbiss',
+    score: 1
+  }],
+  lunchThisWeek: []
+};
+
+const chema = {
+  name: 'Chema',
+  favCuisine: ['German'],
+  restaurants: [{
+    name: 'School Cantine',
+    score: 3
+  }],
+  lunchThisWeek: []
+};
+
+const piotr = {
+  name: 'Piotr',
+  favCuisine: [],
+  restaurants: [{
+    name: 'East Moon',
+    score: -3
+  }, {
+    name: 'W Imbiss',
+    score: 1
+  }],
+  lunchThisWeek: []
+};
+
+const daria = {
+  name: 'Daria',
+  favCuisine: ['Russian', 'Lebanese'],
+  restaurants: [{
+    name: 'Gorki Park',
+    score: 3
+  }, {
+    name: 'Babel',
+    score: 3
+  }],
+  lunchThisWeek: []
+};
+
+const people = [jeremy, andrey, rahul];
 
 console.log(randomRestaurantForToday(restaurants, people));
