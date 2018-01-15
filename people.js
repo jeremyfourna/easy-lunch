@@ -1,6 +1,7 @@
 /* jshint esversion: 6 */
 
 const jeremy = {
+  id: 1,
   name: 'Jeremy',
   favCuisine: ['Lebanese', 'Indian', 'French', 'Japanese'],
   restaurants: [{
@@ -13,10 +14,11 @@ const jeremy = {
     id: 6,
     score: -3
   }],
-  lunchThisWeek: []
+  lunchThisWeek: [{ id: 3 }]
 };
 
 const andrey = {
+  id: 2,
   name: 'Andrey',
   favCuisine: ['Russian'],
   restaurants: [{
@@ -35,10 +37,11 @@ const andrey = {
     id: 6,
     score: -3
   }],
-  lunchThisWeek: []
+  lunchThisWeek: [{ id: 3 }]
 };
 
 const rahul = {
+  id: 3,
   name: 'Rahul',
   favCuisine: [],
   restaurants: [{
@@ -60,20 +63,22 @@ const rahul = {
     id: 1,
     score: 1
   }],
-  lunchThisWeek: []
+  lunchThisWeek: [{ id: 3 }]
 };
 
 const chema = {
+  id: 4,
   name: 'Chema',
   favCuisine: ['German', 'Vietnamese'],
   restaurants: [{
     id: 6,
     score: 3
   }],
-  lunchThisWeek: []
+  lunchThisWeek: [{ id: 3 }]
 };
 
 const piotr = {
+  id: 5,
   name: 'Piotr',
   favCuisine: [],
   restaurants: [{
@@ -87,6 +92,7 @@ const piotr = {
 };
 
 const daria = {
+  id: 6,
   name: 'Daria',
   favCuisine: ['Russian', 'Lebanese'],
   restaurants: [{
