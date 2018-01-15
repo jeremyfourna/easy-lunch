@@ -21,6 +21,9 @@ To modify the program, you need to update the list of restaurants and people ins
     "title": "Restaurant",
     "type": "object",
     "properties": {
+      "id": {
+        "type": "number"
+      },
       "name": {
         "type": "string"
       },
@@ -60,8 +63,8 @@ To modify the program, you need to update the list of restaurants and people ins
       "items": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
+          "id": {
+            "type": "number",
           },
           "score": {
             "type": "number",
@@ -79,12 +82,11 @@ To modify the program, you need to update the list of restaurants and people ins
       "items": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
+          "id": {
+            "type": "number",
           }
         }
-      },
-      "uniqueItems": true
+      }
     }
   }
 }
