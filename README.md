@@ -64,12 +64,12 @@ To modify the program, you need to update the list of restaurants and people ins
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "number"
           },
           "score": {
             "type": "number",
             "min": -3,
-            "max": 3
+            "max": 3,
             "description": "Steps from -3 -1 0 1 3"
           }
         }
@@ -83,7 +83,7 @@ To modify the program, you need to update the list of restaurants and people ins
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
+            "type": "number"
           }
         }
       }
