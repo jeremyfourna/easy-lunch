@@ -15,25 +15,23 @@ To modify the program, you need to update the list of restaurants and people ins
 
 ```json
 {
-  "type": "array",
-  "minItems": 1,
-  "items": {
-    "title": "Restaurant",
-    "type": "object",
-    "properties": {
-      "name": {
+  "title": "Restaurant",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "cuisine": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
         "type": "string"
-      },
-      "cuisine": {
-        "type": "array",
-        "minItems": 1,
-        "items": {
-          "type": "string"
-        }
       }
     }
-  },
-  "uniqueItems": true
+  }
 }
 ```
 
@@ -60,13 +58,13 @@ To modify the program, you need to update the list of restaurants and people ins
       "items": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
+          "id": {
+            "type": "number"
           },
           "score": {
             "type": "number",
             "min": -3,
-            "max": 3
+            "max": 3,
             "description": "Steps from -3 -1 0 1 3"
           }
         }
@@ -77,9 +75,13 @@ To modify the program, you need to update the list of restaurants and people ins
       "type": "array",
       "minItems": 1,
       "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          }
+        }
+      }
     }
   }
 }

@@ -9,7 +9,7 @@ function flatten(list) {
 function restaurantToRemoveForPeople(listOfPeople) {
   return listOfPeople.map(cur => {
     const restaurants = cur.restaurants.filter(cur => cur.score === -3);
-    return restaurants.map(cur => cur.name);
+    return restaurants.map(cur => cur.id);
   });
 }
 
@@ -20,17 +20,17 @@ function uniqueStrings(listOfStrings) {
 
 // notInList :: ([a], [a]) -> [a]
 function notInList(listOfExclusion, listToExcludeFrom) {
-  return listToExcludeFrom.filter(cur => listOfExclusion.indexOf(cur.name) === -1);
+  return listToExcludeFrom.filter(cur => listOfExclusion.indexOf(cur.id) === -1);
 }
 
 // inList :: ([a], [a]) -> [a]
 function inList(listOfInclusion, listToExcludeFrom) {
-  return listToExcludeFrom.filter(cur => listOfInclusion.indexOf(cur.name) >= 0);
+  return listToExcludeFrom.filter(cur => listOfInclusion.indexOf(cur.id) >= 0);
 }
 
-// getName :: [object] -> [string]
-function getName(list) {
-  return list.map(cur => cur.name);
+// getId :: [object] -> [string]
+function getId(list) {
+  return list.map(cur => cur.id);
 }
 
 // sortByScore :: [object] -> [object]
@@ -38,12 +38,23 @@ function sortByScore(listOfRestaurants) {
   return listOfRestaurants.sort((a, b) => a.score - b.score);
 }
 
+// getName :: ([object], number) -> string
+function getName(listOfRestaurants, restaurantId) {
+  const restaurant = listOfRestaurants.find(cur => cur.id === restaurantId);
+
+  if (restaurant === undefined) {
+    return undefined;
+  } else {
+    return restaurant.name;
+  }
+}
+
 // getTotalScore :: ([Restaurant], [People]) -> [object]
 function getTotalScore(listOfRestaurants, listOfPeople) {
-  const selectedRestaurants = flatten(listOfPeople.map(cur => inList(getName(listOfRestaurants), cur.restaurants)));
+  const selectedRestaurants = flatten(listOfPeople.map(cur => inList(getId(listOfRestaurants), cur.restaurants)));
 
   return selectedRestaurants.reduce((prev, cur) => {
-    const curAlreadyThere = prev.find(prevEl => prevEl.name === cur.name);
+    const curAlreadyThere = prev.find(prevEl => prevEl.id === cur.id);
 
     if (curAlreadyThere === undefined) {
       prev.push(cur);
@@ -51,7 +62,7 @@ function getTotalScore(listOfRestaurants, listOfPeople) {
       return prev;
 
     } else {
-      const prevWithoutCur = prev.filter(cur1 => cur1.name !== cur.name);
+      const prevWithoutCur = prev.filter(cur1 => cur1.id !== cur.id);
 
       curAlreadyThere.score += cur.score;
       prevWithoutCur.push(curAlreadyThere);
@@ -64,7 +75,7 @@ function getTotalScore(listOfRestaurants, listOfPeople) {
 
 // randomRestaurantForToday :: ([Restaurant], [People]) -> Restaurant
 function randomRestaurantForToday(listOfRestaurants, listOfPeopleToEatTogether) {
-  const restaurantsVisitedThisWeekPerPeople = listOfPeopleToEatTogether.map(cur => getName(cur.lunchThisWeek));
+  const restaurantsVisitedThisWeekPerPeople = listOfPeopleToEatTogether.map(cur => getId(cur.lunchThisWeek));
   const restaurantsVisitedThisWeekFlatten = flatten(restaurantsVisitedThisWeekPerPeople);
   const uniqueRestaurantVisitedThisWeek = uniqueStrings(restaurantsVisitedThisWeekFlatten);
 
@@ -78,5 +89,7 @@ function randomRestaurantForToday(listOfRestaurants, listOfPeopleToEatTogether) 
   const scorePerRestaurant = getTotalScore(restaurantsWhereEveryOneCanEat, listOfPeopleToEatTogether);
   const listOfRestaurantsSorted = sortByScore(scorePerRestaurant);
 
-  return listOfRestaurantsSorted.pop();
+  const winningRestaurant = listOfRestaurantsSorted.pop();
+
+  return getName(listOfRestaurants, winningRestaurant.id);
 }
