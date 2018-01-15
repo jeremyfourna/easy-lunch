@@ -65,7 +65,7 @@ const rahul = {
 
 const chema = {
   name: 'Chema',
-  favCuisine: ['German'],
+  favCuisine: ['German', 'Vietnamese'],
   restaurants: [{
     id: 6,
     score: 3

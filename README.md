@@ -15,28 +15,23 @@ To modify the program, you need to update the list of restaurants and people ins
 
 ```json
 {
-  "type": "array",
-  "minItems": 1,
-  "items": {
-    "title": "Restaurant",
-    "type": "object",
-    "properties": {
-      "id": {
-        "type": "number"
-      },
-      "name": {
+  "title": "Restaurant",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "cuisine": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
         "type": "string"
-      },
-      "cuisine": {
-        "type": "array",
-        "minItems": 1,
-        "items": {
-          "type": "string"
-        }
       }
     }
-  },
-  "uniqueItems": true
+  }
 }
 ```
 
