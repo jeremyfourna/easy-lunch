@@ -86,10 +86,14 @@ function randomRestaurantForToday(listOfRestaurants, listOfPeopleToEatTogether) 
 
   const restaurantsWhereEveryOneCanEat = notInList(restaurantsWhereSomeDoNoWantToEatFlatten, restaurantsWhereNoOneWentThisWeek);
 
+  const winningRestaurant = restaurantsWhereEveryOneCanEat[Math.floor(Math.random() * restaurantsWhereEveryOneCanEat.length)];
+
+  /*
   const scorePerRestaurant = getTotalScore(restaurantsWhereEveryOneCanEat, listOfPeopleToEatTogether);
   const listOfRestaurantsSorted = sortByScore(scorePerRestaurant);
 
   const winningRestaurant = listOfRestaurantsSorted.pop();
+  */
 
   return getName(listOfRestaurants, winningRestaurant.id);
 }
